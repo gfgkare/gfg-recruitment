@@ -6,7 +6,9 @@
   "scripts": {
     "build": "vite build",
     "dev": "concurrently -k \"npm run dev:server\" \"vite\"",
-    "dev:server": "node server/index.js"
+    "dev:server": "node server/index.js",
+    "deploy": "npm run build && wrangler deploy",
+    "preview": "npm run build && wrangler dev"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
@@ -73,11 +75,13 @@
     "vaul": "1.1.2"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.45.1",
     "@tailwindcss/vite": "4.1.12",
     "@vitejs/plugin-react": "4.7.0",
     "concurrently": "^10.0.3",
     "tailwindcss": "4.1.12",
-    "vite": "6.3.5"
+    "vite": "6.3.5",
+    "wrangler": "^4.112.0"
   },
   "peerDependencies": {
     "react": "18.3.1",
